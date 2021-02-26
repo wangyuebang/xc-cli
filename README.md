@@ -9,3 +9,4 @@ git clone https://github.com/webfansplz/xc-cli.git
 come on ,lets go to try it!
 ```
 内附详细注释！
+"@ xc0cli" 
