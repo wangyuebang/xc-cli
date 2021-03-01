@@ -11,7 +11,7 @@ function resolve(track) {
 }
 //资源路径
 function assetsPath(_path) {
-  return path.join(prodConfig.staticPath, _path);
+  return path.posix.join(prodConfig.staticPath, _path);
 }
 
 //webpack 基本设置

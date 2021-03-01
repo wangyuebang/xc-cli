@@ -20,7 +20,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 //资源路径
 function assetsPath(_path) {
-  return path.join(prodConfig.staticPath, _path);
+  return path.posix.join(prodConfig.staticPath, _path);
 }
 //将webpack基本配置与生产环境配置合并！
 const prodConf = merge(baseConf, {

@@ -48,7 +48,7 @@ module.exports = {
     proxyTable: {}
   },
   build: {
-    publicPath: '/',
+    publicPath: './',
     devtoolType: 'source-map',
     vueloaderConf: buildVueLoaderConf,
     staticPath: 'static'
