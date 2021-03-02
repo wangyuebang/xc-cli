@@ -10,18 +10,22 @@
               </van-swipe-item>
             </van-swipe>
 
-            <van-grid>
-              <van-grid-item icon="photo-o" text="文字">
-                <van-icon name="src/assets/img/icon/01.png" size="40"/>
-              </van-grid-item>
+            <van-grid :border="false" >
               <van-grid-item icon="photo-o" text="文字" >
-                <van-icon name="src/assets/img/icon/04.png" size="40"/>
+                <van-image src="src/assets/img/icon/01.png" width="30"/>
+                  <p class="font-css">行政</p>
+               </van-grid-item>
+              <van-grid-item icon="photo-o" text="文字" >
+                <van-image src="src/assets/img/icon/04.png" width="30"/>
+                <p class="font-css">学习</p>
               </van-grid-item>
               <van-grid-item icon="photo-o" text="文字">
-                <van-icon name="src/assets/img/icon/05.png" size="40"/>
+                <van-image src="src/assets/img/icon/qyjs.png" width="30"/>
+                <p class="font-css">技术</p>
               </van-grid-item>
               <van-grid-item icon="photo-o" text="文字">
-                <van-icon name="src/assets/img/icon/06.png" size="40"/>
+                <van-image src="src/assets/img/icon/sjbw.png" width="30"/>
+                <p class="font-css">问题</p>
               </van-grid-item>
             </van-grid>
             <van-list
@@ -31,7 +35,7 @@
                     @load="onLoad"
             >
               <van-grid :column-num="2">
-                <van-grid-item v-for="(image, index) in images2" :key="index" icon="photo-o" text="图片">
+                <van-grid-item v-for="(image, index) in images2" :key="index" icon="photo-o" text="图片" to="/details" >
                   <van-image
                           width="10rem"
                           height="10rem"
@@ -89,15 +93,15 @@
           {name:"src/assets/img/list/005.png"},
           {name:"src/assets/img/list/006.png"},
           {name:"src/assets/img/list/007.png"},
-          { name:"src/assets/img/list/008.png"},
-          { name:"src/assets/img/list/009.png"},
-          { name:"src/assets/img/list/010.png"},
-          { name:"src/assets/img/list/011.png"},
-          { name:"src/assets/img/list/012.png"},
-          { name:"src/assets/img/list/013.png"},
-          {  name:"src/assets/img/list/014.png"},
-          {  name:"src/assets/img/list/015.png"},
-          {  name:"src/assets/img/list/016.png"}
+          {name:"src/assets/img/list/008.png"},
+          {name:"src/assets/img/list/009.png"},
+          {name:"src/assets/img/list/010.png"},
+          {name:"src/assets/img/list/011.png"},
+          {name:"src/assets/img/list/012.png"},
+          {name:"src/assets/img/list/013.png"},
+          {name:"src/assets/img/list/014.png"},
+          {name:"src/assets/img/list/015.png"},
+          {name:"src/assets/img/list/016.png"}
         ],
         images: [
           require("@/assets/img/fish.png"),
@@ -115,8 +119,9 @@
         // // setTimeout 仅做示例，真实场景中一般为 ajax 请求
         setTimeout(() => {
           for (let i = 0; i < limg.length; i++) {
-            this.list.push(limg[i].name);
+            this.list.push("name",limg[i].name);
           }
+          // console.log(this.list)
           // 加载状态结束
           this.loading = false;
 
@@ -130,12 +135,15 @@
 };
 </script>
 <style>
-    .my-swipe .van-swipe-item {
-    color: #fff;
-    font-size: 20px;
-    line-height: 150px;
-    text-align: center;
-    background-color: #f7f7f7;
+  .my-swipe .van-swipe-item {
+  color: #fff;
+  font-size: 20px;
+  line-height: 150px;
+  text-align: center;
+  background-color: #f7f7f7;
+}
+  .font-css{
+    font-size: 10px;
+    color: #646566;
   }
-
 </style>

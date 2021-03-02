@@ -50,11 +50,20 @@ module.exports = {
       //大于limit字节的会调用file-loader进行处理！
       //图片一般发布后都是长缓存,故此处文件名加入hash做版本区分!
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: "url-loader",
         options: {
           limit: 8192,
-          name: assetsPath("img/[name].[hash:8].[ext]")
+          name: assetsPath("img/[name].[hash:8].[ext]"),
+        }
+      },
+      {
+        //处理其他资源
+        test: /\.(eot|ttf|svg|woff|woff2)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[contenthash].[ext]',
+          outputPath: 'static/assets/',
         }
       }
     ]
