@@ -44,7 +44,7 @@ module.exports = {
     devtoolType: 'cheap-module-eval-source-map',
     vueloaderConf: devVueLoaderConf,
     host: 'localhost',
-    port: '1234',
+    port: '8888',
     proxyTable: {}
   },
   build: {

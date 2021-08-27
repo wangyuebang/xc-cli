@@ -3,6 +3,7 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 //webpack按需加载组件
+const Backstage = r => require.ensure([], () => r(require('../page/element/backstage')), ' backstage');
 const home = r => require.ensure([], () => r(require('../page/home/home')), ' home');
 const Details = r => require.ensure([], () => r(require('../page/details')), ' details');
 
@@ -11,7 +12,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/home'
+      redirect: '/backstage'
+    },
+    {
+      path: '/backstage',
+      name: 'backstage',
+      component: Backstage
     },
     {
       path: '/home',
