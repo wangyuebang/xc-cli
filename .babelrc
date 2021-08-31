@@ -11,15 +11,26 @@
   ],
   "plugins": [
     "transform-runtime",
-    ["import", {
-      "libraryName": "vant",
-      "libraryDirectory": "es",
-      "style": true
-    }]
+    [
+      "import",
+      {
+        "libraryName": "vant",
+        "libraryDirectory": "es",
+        "style": true
+      },
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
   ],
   "env": {
     "test": {
-      "presets": ["env", "stage-2"]
+      "presets": [
+        "env",
+        "stage-2"
+      ]
     }
   }
 }

@@ -1,47 +1,90 @@
 <template>
-    <el-row>
-        <el-button>默认按钮</el-button>
-        <el-button type="primary">主要按钮</el-button>
-        <el-button type="success">成功按钮</el-button>
-        <el-button type="info">信息按钮</el-button>
-        <el-button type="warning">警告按钮</el-button>
-        <el-button type="danger">危险按钮</el-button>
-    </el-row>
-
-    <el-row>
-        <el-button plain>朴素按钮</el-button>
-        <el-button type="primary" plain>主要按钮</el-button>
-        <el-button type="success" plain>成功按钮</el-button>
-        <el-button type="info" plain>信息按钮</el-button>
-        <el-button type="warning" plain>警告按钮</el-button>
-        <el-button type="danger" plain>危险按钮</el-button>
-    </el-row>
-
-    <el-row>
-        <el-button round>圆角按钮</el-button>
-        <el-button type="primary" round>主要按钮</el-button>
-        <el-button type="success" round>成功按钮</el-button>
-        <el-button type="info" round>信息按钮</el-button>
-        <el-button type="warning" round>警告按钮</el-button>
-        <el-button type="danger" round>危险按钮</el-button>
-    </el-row>
-
-    <el-row>
-        <el-button icon="el-icon-search" circle></el-button>
-        <el-button type="primary" icon="el-icon-edit" circle></el-button>
-        <el-button type="success" icon="el-icon-check" circle></el-button>
-        <el-button type="info" icon="el-icon-message" circle></el-button>
-        <el-button type="warning" icon="el-icon-star-off" circle></el-button>
-        <el-button type="danger" icon="el-icon-delete" circle></el-button>
-    </el-row>
+    <el-container style="height: 1000px; border: 1px solid #eee">
+        <el-header>
+            <div>
+                <img width="60px" src="@/assets/img/list/001.png" alt="">
+                <span >fish后台</span>
+            </div>
+            <el-button type="danger">退出</el-button>
+        </el-header>
+        <el-container>
+            <!--侧边栏菜单-->
+            <el-aside :width="isCollapse ? '64px' : '200px'">
+                <div class="toggle-button" @click="toggleCollapse">|||</div>
+                <el-menu background-color="#545c64"
+                        text-color="#fff"
+                        active-text-color="#ffd04b"
+                        :collapse = "isCollapse"
+                         :collapse-transition="isTransition">
+                    <el-submenu index="1">
+                        <template slot="title">
+                            <i class="el-icon-location"></i>
+                            <span>导航一</span>
+                        </template>
+                        <!--二级菜单-->
+                        <el-menu-item index="1-1">选项1</el-menu-item>
+                    </el-submenu>
+                    <el-submenu index="2">
+                        <template slot="title">
+                            <i class="el-icon-location"></i>
+                            <span>导航一</span>
+                        </template>
+                        <!--二级菜单-->
+                        <el-menu-item index="2-1">选项1</el-menu-item>
+                    </el-submenu>
+                </el-menu>
+            </el-aside>
+            <el-main>Main</el-main>
+        </el-container>
+    </el-container>
 </template>
 
 <script>
   export default {
-    name: "backstage"
+    name: "backstage",
+    data(){
+      return {
+        isCollapse: false,
+        isTransition: false,
+      }
+    },
+    methods:{
+      toggleCollapse(){
+        this.isCollapse = !this.isCollapse
+      }
+    }
   }
 </script>
 
 <style scoped>
+    .toggle-button{
+        background-color: #5b636c;
+        font-size: 10px;
+        line-height: 24px;
+        color: #fff;
+        text-align: center;
+        letter-spacing: 0.2em;
+        cursor: pointer;
+    }
 
+    .el-header{
+        background-color: #545c64;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 0;
+        align-items: center;
+        font-size: 20px;
+    }
+
+    .el-header > div {
+        display: flex;
+        align-items: center;
+    }
+
+    .el-aside{
+        background-color: #545c64;
+    }
+    .el-main{
+        background-color: #ffffff;
+    }
 </style>
